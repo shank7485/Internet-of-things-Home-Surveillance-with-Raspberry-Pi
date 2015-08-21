@@ -1,0 +1,4 @@
+#! /bin/bash
+
+ssh -f -R 9000:localhost:8080 -N sxs141731@10.176.67.119
+java TheClient1 &

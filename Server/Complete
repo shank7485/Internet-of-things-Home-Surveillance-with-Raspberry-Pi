@@ -1,0 +1,8 @@
+#! /bin/bash
+
+cd ~/Downloads
+python pagekite.py 9000 raspidoor.pagekite.me &
+cd ~/Desktop/JavaServer
+java TheServer &
+
+

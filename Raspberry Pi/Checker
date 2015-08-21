@@ -1,0 +1,23 @@
+#! /bin/bash
+
+echo 7 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio7/direction
+
+inotifywait -m /home/pi/Desktop/command.txt -e modify |
+	while read path action file; do
+        
+		value=$(<command.txt)
+    		echo "$value"
+        
+        	if [ $value = "Open" ];
+    		then
+			echo 0 > /sys/class/gpio/gpio7/value
+        		echo "Value in command file is Open"
+			omxplayer example.mp3
+    		elif [ $value = "Close" ];
+    		then
+        		echo "Value in command file is Close"
+			echo 1 > /sys/class/gpio/gpio7/value
+    		fi
+        
+    	done

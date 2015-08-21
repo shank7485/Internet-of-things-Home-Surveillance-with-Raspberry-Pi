@@ -1,0 +1,5 @@
+#! /bin/bash
+
+cd ~/Desktop
+sudo bash Checker &
+sudo python InputPin &

@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_above="@+id/buttonClose"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="14dp"
+        tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/buttonClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonOpen"
+        android:layout_alignBottom="@+id/buttonOpen"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="36dp"
+        android:text="Close"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <Button
+        android:id="@+id/buttonOpen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="22dp"
+        android:layout_marginLeft="37dp"
+        android:text="Open"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+</RelativeLayout>

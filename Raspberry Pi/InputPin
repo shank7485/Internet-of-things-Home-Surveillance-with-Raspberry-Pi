@@ -1,0 +1,32 @@
+import RPi.GPIO as GPIO
+import json,httplib
+
+GPIO.setmode(GPIO.BCM)     #Set mode to broadcom SoC
+GPIO.setwarnings(False)
+
+button = 10            #Input GPIO Number
+GPIO.setup(button, GPIO.IN, pull_up_down = GPIO.PUD_UP)  #Setup GPIO 10 for input
+
+def push():
+	connection = httplib.HTTPSConnection('api.parse.com', 443)
+	connection.connect()
+	connection.request('POST', '/1/push', json.dumps({
+       "channels": [
+         ""
+       ],
+       "data": {
+         "alert": "Someone is at the door. Please open app"
+       }
+     }), {
+       "X-Parse-Application-Id": "K8OB4nELNSl1rBM835CYcA33kaEJYkvfrgHhHOns",
+       "X-Parse-REST-API-Key": "QzDct1SmoEOHZxTWpCMIjS2ZJc1qpKLEChyH5nJv",
+       "Content-Type": "application/json"
+     })
+	result = json.loads(connection.getresponse().read())
+	print result
+
+while True:
+        GPIO.wait_for_edge(button, GPIO.FALLING)   #Executes when a high on GPIO 10 occurs
+        push()
+GPIO.cleanup()
+        

@@ -1,0 +1,9 @@
+#! /bin/bash
+
+#ssh -f -R 9000:localhost:8080 -N sxs141731@10.176.67.119
+mkdir /tmp/stream
+raspistill --nopreview -vf -w 250 -h 350 -q 5 -o /tmp/stream/pic.jpg -tl 1 -t 9999999 -th 0:0:0 &
+LD_LIBRARY_PATH=/usr/local/lib mjpg_streamer -i "input_file.so -f /tmp/stream -n pic.jpg" -o "output_http.so -w /usr/local/www" &
+#java TheClient1 &
+bash GPIO
+
