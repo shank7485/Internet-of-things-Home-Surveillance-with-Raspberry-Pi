@@ -4,7 +4,7 @@ Place all zipped files for Raspberry Pi on Desktop and run thr following from co
 Bash Commands:
 cd ~/Desktop/
 sudo bash CameraandGPIO
-sudo JavaClientandSSH
+sudo bash JavaClientandSSH
 
 On Server:
 
